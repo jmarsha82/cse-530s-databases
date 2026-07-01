@@ -1,13 +1,13 @@
 package hw5;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import com.google.gson.*;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 public class Document {
+	private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 	
 	/**
 	 * Parses the given json string and returns a JsonObject
@@ -15,7 +15,11 @@ public class Document {
 	 * a file into an object that can be manipulated.
 	 */
 	public static JsonObject parse(String json) {
-		return null;
+		JsonElement element = JsonParser.parseString(json);
+		if (!element.isJsonObject()) {
+			throw new IllegalArgumentException("Document JSON must be an object");
+		}
+		return element.getAsJsonObject();
 	}
 	
 	/**
@@ -25,6 +29,9 @@ public class Document {
 	 * when writing data to disk.
 	 */
 	public static String toJsonString(JsonObject json) {
-		return null;
+		if (json == null) {
+			throw new IllegalArgumentException("Document cannot be null");
+		}
+		return GSON.toJson(json);
 	}
 }

@@ -1,0 +1,9 @@
+target/
+*.class
+.classpath
+.project
+.settings/
+.idea/
+*.iml
+hw-5/testfiles/unit-test-db/
+hw-5/testfiles/hw5/

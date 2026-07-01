@@ -1,6 +1,12 @@
 package hw5;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+
 public class DB {
+	private final String name;
+	private final File directory;
 
 	/**
 	 * Creates a database object with the given name.
@@ -14,7 +20,17 @@ public class DB {
 	 * created.
 	 */
 	public DB(String name) {
-		
+		if (name == null || name.trim().isEmpty()) {
+			throw new IllegalArgumentException("Database name is required");
+		}
+		this.name = name;
+		this.directory = new File("testfiles", name);
+		if (!directory.exists()) {
+			directory.mkdirs();
+		}
+		if (!directory.isDirectory()) {
+			throw new IllegalStateException("Database path is not a directory: " + directory);
+		}
 	}
 	
 	/**
@@ -26,15 +42,40 @@ public class DB {
 	 * disk at this time. Those methods are in DBCollection.
 	 */
 	public DBCollection getCollection(String name) {
-		return null;
+		return new DBCollection(this, name);
 	}
 	
 	/**
 	 * Drops this database and all collections that it contains
 	 */
 	public void dropDatabase() {
-		
+		deleteRecursively(directory);
 	}
 	
+	String getName() {
+		return name;
+	}
+
+	File getDirectory() {
+		return directory;
+	}
 	
+	private static void deleteRecursively(File file) {
+		if (!file.exists()) {
+			return;
+		}
+		if (file.isDirectory()) {
+			File[] children = file.listFiles();
+			if (children != null) {
+				for (File child : children) {
+					deleteRecursively(child);
+				}
+			}
+		}
+		try {
+			Files.deleteIfExists(file.toPath());
+		} catch (IOException e) {
+			throw new IllegalStateException("Unable to delete " + file, e);
+		}
+	}
 }
