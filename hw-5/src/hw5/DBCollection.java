@@ -31,7 +31,10 @@ public class DBCollection {
 		this.file = new File(database.getDirectory(), name + ".json");
 		try {
 			if (!file.exists()) {
-				file.createNewFile();
+				boolean created = file.createNewFile();
+				if (!created) {
+					throw new IllegalStateException("Unable to create collection file " + file);
+				}
 			}
 		} catch (IOException e) {
 			throw new IllegalStateException("Unable to create collection file " + file, e);
