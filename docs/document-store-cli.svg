@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Document Store CLI screenshot</title>
+  <desc id="desc">Terminal-style screenshot showing the CSE 530S document store command-line interface listing three JSON documents.</desc>
+  <rect width="960" height="540" fill="#f5f7fb"/>
+  <rect x="82" y="54" width="796" height="432" rx="8" fill="#171923"/>
+  <rect x="82" y="54" width="796" height="42" rx="8" fill="#2d3748"/>
+  <circle cx="111" cy="75" r="7" fill="#fc8181"/>
+  <circle cx="135" cy="75" r="7" fill="#f6e05e"/>
+  <circle cx="159" cy="75" r="7" fill="#68d391"/>
+  <text x="198" y="80" fill="#e2e8f0" font-family="Consolas, 'Courier New', monospace" font-size="16">hw-5 document store demo</text>
+  <text x="112" y="132" fill="#9ae6b4" font-family="Consolas, 'Courier New', monospace" font-size="17">$ mvn -pl hw-5 exec:java</text>
+  <text x="112" y="174" fill="#edf2f7" font-family="Consolas, 'Courier New', monospace" font-size="18">CSE 530S Document Store</text>
+  <text x="112" y="206" fill="#edf2f7" font-family="Consolas, 'Courier New', monospace" font-size="17">Database: data</text>
+  <text x="112" y="234" fill="#edf2f7" font-family="Consolas, 'Courier New', monospace" font-size="17">Collection: test</text>
+  <text x="112" y="262" fill="#edf2f7" font-family="Consolas, 'Courier New', monospace" font-size="17">Documents: 3</text>
+  <text x="112" y="318" fill="#90cdf4" font-family="Consolas, 'Courier New', monospace" font-size="17">[1]</text>
+  <text x="112" y="348" fill="#fbd38d" font-family="Consolas, 'Courier New', monospace" font-size="17">{ "key": "value" }</text>
+  <text x="112" y="392" fill="#90cdf4" font-family="Consolas, 'Courier New', monospace" font-size="17">[2]</text>
+  <text x="112" y="422" fill="#fbd38d" font-family="Consolas, 'Courier New', monospace" font-size="17">{ "embedded": { "key2": "value2" } }</text>
+  <text x="112" y="466" fill="#90cdf4" font-family="Consolas, 'Courier New', monospace" font-size="17">[3]</text>
+  <text x="112" y="496" fill="#fbd38d" font-family="Consolas, 'Courier New', monospace" font-size="17">{ "array": [ "one", "two", "three" ] }</text>
+</svg>
